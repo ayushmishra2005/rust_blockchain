@@ -1,0 +1,17 @@
+[package]
+name = "rust_blockchain"
+version = "0.1.0"
+authors = ["ayush <ayush@knoldus.com>"]
+edition = "2018"
+
+[lib]
+name = "rustblockchainlib"
+path = "src/lib.rs"
+
+[[bin]]
+name = "rust_blockchain"
+path = "src/main.rs"
+
+[dependencies]
+time = "0.1.42"
+crypto-hash = "0.3.4"
