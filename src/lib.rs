@@ -1,4 +1,3 @@
-extern crate time;
 
 mod block;
 pub use block::Block;
@@ -6,9 +5,10 @@ pub mod transaction;
 pub use transaction::Transaction;
 pub mod blockchain;
 pub use blockchain::Blockchain;
+use std::time::Instant;
 
-pub fn now() -> i64 {
-    time::now().to_timespec().sec
+pub fn now() -> u64 {
+    Instant::now().elapsed().as_secs()
 }
 
 /// Calculate crypto hash of block
@@ -38,7 +38,7 @@ pub fn now() -> i64 {
 pub fn calculate_hash(
     pre_hash: &String,
     transactions: &Vec<Transaction>,
-    timestamp: i64,
+    timestamp: u64,
 ) -> String {
     let mut bytes = vec![];
     bytes.extend(&timestamp.to_ne_bytes());
