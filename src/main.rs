@@ -25,5 +25,6 @@ fn main() {
     blockchain.add_block(first_block);
     blockchain.add_block(second_block);
 
+    println!("{}", blockchain.is_valid_chain());
     println!("{:#?}", blockchain);
 }
