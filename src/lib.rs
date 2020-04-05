@@ -1,4 +1,3 @@
-
 mod block;
 pub use block::Block;
 pub mod transaction;
@@ -6,6 +5,7 @@ pub use transaction::Transaction;
 pub mod blockchain;
 pub use blockchain::Blockchain;
 use std::time::Instant;
+
 
 pub fn now() -> u64 {
     Instant::now().elapsed().as_secs()
@@ -35,11 +35,7 @@ pub fn now() -> u64 {
 ///
 /// ```
 ///
-pub fn calculate_hash(
-    pre_hash: &String,
-    transactions: &Vec<Transaction>,
-    timestamp: u64,
-) -> String {
+pub fn calculate_hash(pre_hash: &str, transactions: &Vec<Transaction>, timestamp: &u64) -> String {
     let mut bytes = vec![];
     bytes.extend(&timestamp.to_ne_bytes());
     bytes.extend(

@@ -14,13 +14,21 @@ impl Block {
     /// Creates block from previous block hash and transaction data
     ///
 
-    pub fn new(pre_hash: String, transaction: Vec<Transaction>) -> Self {
+    pub fn new(transaction: Vec<Transaction>) -> Self {
         let time = now();
+        let pre_hash = String::new();
         Block {
             timestamp: time,
-            hash: calculate_hash(&pre_hash, &transaction, time),
+            hash: calculate_hash(&pre_hash, &transaction, &time),
             pre_hash,
             transaction,
         }
+    }
+
+    ///
+    /// Set hash of previous block as pre hash
+    ///
+    pub fn set_pre_hash(&mut self, pre_hash: String) {
+        self.pre_hash = pre_hash;
     }
 }
