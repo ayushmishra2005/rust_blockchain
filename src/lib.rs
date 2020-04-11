@@ -7,6 +7,7 @@ pub use blockchain::Blockchain;
 use std::time::Instant;
 
 const DIFFICULT_LEVEL: i32 = 2;
+const MINING_REWARD: f32 = 100f32;
 
 pub fn now() -> u64 {
     Instant::now().elapsed().as_secs()
