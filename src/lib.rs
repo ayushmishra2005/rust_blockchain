@@ -4,7 +4,9 @@ pub mod transaction;
 pub use transaction::Transaction;
 pub mod blockchain;
 pub use blockchain::Blockchain;
+pub mod wallet;
 use std::time::Instant;
+pub use wallet::Wallet;
 
 const DIFFICULT_LEVEL: i32 = 2;
 const MINING_REWARD: f32 = 100f32;
@@ -24,17 +26,18 @@ pub fn now() -> u64 {
 /// let time:u64 = 1573978703u64;
 /// let pre_hash = "fd1afb6022cd4d47c890961c533928eacfe8219f1b2524f7fb2a61847ddf8c27".to_owned();
 /// let transactions = vec![
-///        Transaction {
-///             sender: String::from("Ryan"),
-///             receiver: String::from("Dan"),
-///             amount: 2000.0,
-///         }
+///       Transaction {
+///        sender: None,
+///        receiver: None,
+///        amount: 2000.0,
+///        signature: None,
+///    }
 ///     ];
 /// let nonce :u64= 0u64;
 ///
 /// let hash = calculate_hash(&pre_hash, &transactions, &time, &nonce);
 ///
-/// assert_eq!(hash, "f424364cf2c0df65381337bee2487cfec30b6074a5a0d8b2bcf6695df856e680");
+/// assert_eq!(hash, "80df682cb0547cf91f2a9c4042c80e201bf4e2dfe074dfae3f0070edbbd02a5e");
 ///
 /// ```
 ///

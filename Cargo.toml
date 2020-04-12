@@ -14,3 +14,5 @@ path = "src/main.rs"
 
 [dependencies]
 crypto-hash = "0.3.4"
+ed25519-dalek = "1.0.0-pre.3"
+rand = "0.7.3"
