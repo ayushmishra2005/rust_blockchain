@@ -1,6 +1,8 @@
 use ed25519_dalek::Keypair;
 use ed25519_dalek::PublicKey;
 use ed25519_dalek::Signature;
+use ed25519_dalek::Signer;
+use ed25519_dalek::Verifier;
 
 #[derive(Debug, Clone)]
 pub struct Transaction {
